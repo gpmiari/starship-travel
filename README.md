@@ -5,7 +5,7 @@ API para calcular quantas paradas uma starship faz a uma distância determinada.
 API https://swapi.co/starships
 
 #### Requisitos
-- node 10.16 or latest
+- Node.js 24 LTS ou superior (veja `.nvmrc`)
 
 #### Instalação
 Clone o projeto em uma pasta, após clonar o projeto acesse a pasta em que o projeto foi clonado e execute o comando npm install.
@@ -25,6 +25,6 @@ Execute um post utilizando Postman na url http://localhost:8091/api/starship com
 
 #### Outros comandos
 npm test - executa os testes automatizados.
-npm run lint - verifica se o código contem erros
+npm run lint - verifica se o código contem erros (npm run lint:fix corrige automaticamente)
 npm run debug - executa o projeto em modo de debug
 npm run debugtest - executa os testes em modo de debug

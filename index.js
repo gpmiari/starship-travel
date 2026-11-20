@@ -1,6 +1,6 @@
 const { app, logger } = require('./config');
-require('dotenv').config();
-const pack = require('./package');
+require('dotenv').config({ quiet: true });
+const pack = require('./package.json');
 
 const port = process.env.PORT || 8091;
 
