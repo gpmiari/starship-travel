@@ -1,7 +1,6 @@
-require('dotenv').config();
+require('dotenv').config({ quiet: true });
 
 const { createLogger, format, transports } = require('winston');
-const moment = require('moment');
 const reqLogger = require('./request-logger');
 
 const colorizer = format.colorize();
@@ -13,12 +12,14 @@ const myLogger = (() => {
     if (!loggerWinston) {
       loggerWinston = createLogger({
         format: format.combine(
-          format.timestamp(),
+          format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
           format.simple(),
           format.printf((message) => {
             const level = message.level.toUpperCase();
-            const timestamp = moment(message.timestamp).format('YYYY-MM-DD HH:mm:ss');
-            return colorizer.colorize(message.level, `${timestamp} - ${level}: ${message.message}`);
+            return colorizer.colorize(
+              message.level,
+              `${message.timestamp} - ${level}: ${message.message}`,
+            );
           }),
         ),
         transports: [new transports.Console()],
